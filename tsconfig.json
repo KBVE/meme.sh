@@ -19,7 +19,7 @@
       // Alias for Components
       "baseUrl": ".",
       // Astro Images
-      "types": ["@astrojs/image/client"],
+      "types": [],
       // Paths
       "paths": {
           //? Short Path
