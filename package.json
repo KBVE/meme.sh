@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.18.0",
+    "@astrojs/mdx": "^4.3.0",
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/react": "4.3.0",
@@ -25,6 +26,7 @@
     "@react-three/fiber": "8.0.26",
     "@react-three/postprocessing": "2.4.4",
     "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.1",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
@@ -32,9 +34,18 @@
     "nanostores": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "svelte": "^4.2.0",
+    "svelte": "^5.34.8",
     "tailwindcss": "^4.1.11",
-    "three": "0.142"
+    "three": "0.142",
+    "vite": "^7.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "@tailwindcss/oxide"
+    ],
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide"
+    ]
+  }
 }

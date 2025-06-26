@@ -1,17 +1,21 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
-import prefetch from "@astrojs/prefetch";
 import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
+import mdx from '@astrojs/mdx';
+import { defineConfig as defineViteConfig } from 'vite';
+
 import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 
-//* Define Config of AstroJS
-//import image from '@astrojs/image';
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://meme.sh/",
+  output: 'static',
+    image: {
+        domains: ['images.unsplash.com'],
+    },
+  prefetch: true,
   integrations: [
     sitemap({
       customPages: [
@@ -19,17 +23,11 @@ export default defineConfig({
         "https://app.meme.sh/",
       ],
     }),
-
-    //  React
-    react({ experimentalReactChildren: true }),
-    //  Post-Build -> Compress
-    //compress(),
-    //  Prefetch
-    prefetch({
-      throttle: 3,
-    }),
-    tailwind(),
-
+    react({
+            experimentalReactChildren: true,
+            experimentalDisableStreaming: true,
+        }),    //  Post-Build -> Compress
+ 
     partytown({
       // dataLayer.push as a forwarding-event.
       config: {
@@ -41,19 +39,8 @@ export default defineConfig({
   ],
   //  Vite
   vite: {
-    plugins: [],
-    ssr: {
-      //external: ["@11ty/eleventy-img", "svgo"],
-      //external: ["@11ty/eleventy-img"]
-    },
-    // build: {
-    //   rollupOptions: {
-    //     output: {
-    //       entryFileNames: 'entry.[hash].js',
-    //       chunkFileNames: 'chunks/chunk.[hash].js',
-    //       assetFileNames: 'assets/asset.[hash][extname]',
-    //     },
-    //   },
-    // },
+    plugins: [
+       tailwindcss(),
+    ],
   },
 });
