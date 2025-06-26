@@ -12,9 +12,6 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   site: "https://meme.sh/",
-  experimental: {
-    viewTransitions: true
-   },
   integrations: [
     sitemap({
       customPages: [
