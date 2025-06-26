@@ -29,6 +29,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.1",
+    "clsx": "^2.1.1",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
     "flowbite-svelte": "^0.44.2",
@@ -36,6 +37,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "svelte": "^5.34.8",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "three": "0.142",
     "vite": "^7.0.0"

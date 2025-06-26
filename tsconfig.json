@@ -30,6 +30,7 @@
           "@w/*": ["src/components/Widget/*"],
           "@a/*": ["src/assets/*"],
           "@r/*": ["src/components/Library/React/*"],
+          "@u/*": ["src/utils/*"],
       }
     }
   }
