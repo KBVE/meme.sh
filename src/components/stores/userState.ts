@@ -433,24 +433,3 @@ export function initializeAuthListener() {
     }
   });
 }
-
-/**
- * SUPABASE INTEGRATION SUMMARY:
- * 
- * USER REGISTRATION (Onboarding):
- * - Uses Supabase Edge Function: supabase.functions.invoke('register-user', { body: { username } })
- * - Handles username creation and initial profile setup
- * - Shared between astro-kbve and astro-memes (same Supabase instance)
- * 
- * PROFILE DATA FETCHING:
- * - Uses available RPC from astro-kbve: supabase.rpc('get_user_balance_context', { p_identifier, use_cache })
- * - Returns: user_id, username, role, credits, khash, level, created_at
- * - Meme-specific fields (meme_points, total_memes, total_likes) are set to null until database schema is extended
- * 
- * USERNAME LOOKUP:
- * - Uses RPC calls: supabase.rpc('proxy_get_username') / supabase.rpc('proxy_get_uuid')
- * - For username/UUID conversions (shared between astro-kbve and astro-memes)
- * 
- * IMPORTANT: Both astro-kbve and astro-memes share the same Supabase instance,
- * so astro-memes can only use RPC functions that already exist in astro-kbve.
- */
