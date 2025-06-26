@@ -1,7 +1,6 @@
 ---
-import "@s/index.css";
+import "@s/global.css";
 import Nav from "@l/Nav.astro";
-import { ViewTransitions } from 'astro:transitions';
 const {
   title = "Meme.sh",
   description = "Meme Intelligence - Kiss",
@@ -10,79 +9,22 @@ const {
 const url = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="motion-safe:scroll-smooth" data-theme="dark">
   <head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <slot name="header" />
-    <script is:inline>
-      const themeSaved = localStorage.getItem("theme");
-
-      if (themeSaved) {
-        document.documentElement.dataset.theme = themeSaved;
-        //      document.documentElement.classList.add(themeSaved);
-      } else {
-        document.documentElement.dataset.theme = "dark";
-        //      document.documentElement.classList.add("dark");
-      }
-
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (event) => {
-          if (!localStorage.getItem("theme")) {
-            document.documentElement.dataset.theme = event.matches
-              ? "dark"
-              : "light";
-          }
-        });
-    </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"
-    ></script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href={url} />
-
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-    />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-      media="print"
-      onload="this.media='all'"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-      />
-    </noscript>
-    <meta property="og:title" content={title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- <ViewTransitions /> -->
+    <slot name="header" />
   </head>
 
   <body
     class="text-base bg-zinc-950 text-default selection:bg-secondary selection:text-white">
-
     <div transition:persist="nav">
       <Nav />
-  </div>
+    </div>
 
     <slot />
   </body>

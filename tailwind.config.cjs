@@ -3,16 +3,11 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  //darkMode: ['class', '[data-mode="dark"]'],
   content: [
           './src/**/*.{astro,html,js,jsx,svelte,ts,ts*,tsx,vue,mdx,md}',
           './node_modules/flowbite/**/*.js'
-          // transform: {
-          //   mdx: (content) => {
-          //     return remark().process(content)
-          //   }}
+
   ],
-  //content: ["./src/components/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       fontFamily: {
